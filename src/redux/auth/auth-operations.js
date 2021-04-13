@@ -10,11 +10,11 @@ const token = {};
  * body: {name, email, password}
  */
 
-const register = credentials => async dispatch => {
+const register = user => async dispatch => {
   dispatch(authActions.registerRequest());
 
   try {
-    const response = axios.post('/users/signup', credentials);
+    const response = axios.post('/users/signup', user);
     dispatch(authActions.registerSuccess(response.data));
   } catch (error) {
     dispatch(authActions.registerError(error));
@@ -44,4 +44,6 @@ const logOut = () => dispatch => {};
 
 const getCurrentUser = () => (dispatch, getState) => {};
 
-export { register, logIn, logOut, getCurrentUser };
+// eslint-disable-next-line import/no-anonymous-default-export
+const operations = { register, logIn, logOut, getCurrentUser };
+export default operations;

@@ -8,6 +8,7 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
+import authReducer from './auth/auth-reducer';
 import phonebookReducer from './contacts/reducer';
 
 const middleware = [
@@ -21,6 +22,7 @@ const middleware = [
 
 const store = configureStore({
   reducer: {
+    auth: authReducer,
     phonebook: phonebookReducer,
   },
   middleware,
