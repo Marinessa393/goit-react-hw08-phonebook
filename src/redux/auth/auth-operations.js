@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { number } from 'prop-types';
 import authActions from './auth-actions';
 
 axios.defaults.baseURL = 'https://goit-phonebook-api.herokuapp.com';
@@ -8,16 +9,18 @@ const token = {};
 /*
  * POST @ /users/signup
  * body: {name, email, password}
+
  */
 
 const register = user => async dispatch => {
   dispatch(authActions.registerRequest());
 
   try {
-    const response = axios.post('/users/signup', user);
+    const response = await axios.post('/users/signup', user);
+
     dispatch(authActions.registerSuccess(response.data));
   } catch (error) {
-    dispatch(authActions.registerError(error));
+    dispatch(authActions.registerError(error.message));
   }
 };
 

@@ -1,17 +1,23 @@
 import { createReducer } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
-// import authActions from './auth-actions';
+import authActions from './auth-actions';
 
-const initialuserState = { name: null, email: null };
+const initialUserState = { name: null, email: null };
 
-const user = createReducer(initialuserState, {});
+const user = createReducer(initialUserState, {
+  [authActions.registerSuccess]: (_, { payload }) => payload.user,
+});
 
-const token = createReducer(null, {});
+const token = createReducer(null, {
+  [authActions.registerSuccess]: (_, { payload }) => payload.token,
+});
 
-const error = createReducer(null, {});
+const error = createReducer(null, {
+  [authActions.registerError]: (_, { payload }) => payload,
+});
 
 export default combineReducers({
   user,
-  error,
   token,
+  error,
 });

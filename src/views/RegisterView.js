@@ -19,8 +19,6 @@ class RegisterView extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // console.log(this.state);
-    // console.log(typeof this.props.onRegister);
     this.props.onSubmit(this.state);
     this.setState({ name: '', email: '', password: '' });
   };
@@ -47,7 +45,6 @@ class RegisterView extends Component {
               onChange={this.handleChange}
             />
           </label>
-
           <label>
             <p>Password:</p>
             <input
@@ -67,9 +64,5 @@ class RegisterView extends Component {
 const mapDispatchToProps = {
   onSubmit: operations.register,
 };
-
-// const mapDispatchToProps = dispatch => ({
-//   onRegister: data => dispatch(operations.register(data)),
-// });
 
 export default connect(null, mapDispatchToProps)(RegisterView);

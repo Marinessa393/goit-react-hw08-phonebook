@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-export class LoginView extends Component {
+class LoginView extends Component {
   state = {
     email: '',
     password: '',
@@ -44,3 +44,5 @@ export class LoginView extends Component {
     );
   }
 }
+
+export default LoginView;
