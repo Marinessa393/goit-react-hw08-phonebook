@@ -3,7 +3,7 @@ import { ContactsView } from '../views/ContactsView';
 import { MainPageView } from '../views/MainPageView';
 import RegisterView from '../views/RegisterView';
 import LoginView from '../views/LoginView';
-import { AppBar } from '../components/AppBar';
+import AppBar from '../components/AppBar';
 // import './App.css';
 
 const App = () => {

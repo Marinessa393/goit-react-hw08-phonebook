@@ -1,13 +1,27 @@
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+import selectors from '../redux/auth/auth-selectors';
 
-export function UserMenu() {
+function UserMenu({ name, avatar, onLogout }) {
   return (
     <>
       <div>
-        <Link to="/">Main</Link>
-        <span>Hello!</span>
-        <button>Logout</button>
+        <NavLink to="/">Main</NavLink>
+        <img src={avatar} alt="" />
+        <p>Hello, {name}</p>
+        <button type="button" onClick={onLogout}>
+          Logout
+        </button>
       </div>
     </>
   );
 }
+const mapStateToProps = state => ({
+  name: selectors.getUserName(state),
+  // avatar:
+  // onLogout: selectors.onLogout(state),
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
