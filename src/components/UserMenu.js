@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import operations from '../redux/auth/auth-operations';
 import selectors from '../redux/auth/auth-selectors';
 
 function UserMenu({ name, avatar, onLogout }) {
@@ -19,9 +20,10 @@ function UserMenu({ name, avatar, onLogout }) {
 const mapStateToProps = state => ({
   name: selectors.getUserName(state),
   // avatar:
-  // onLogout: selectors.onLogout(state),
 });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  onLogout: operations.logOut,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserMenu);
