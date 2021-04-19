@@ -17,6 +17,16 @@ const token = createReducer(null, {
   [authActions.logOutSuccess]: () => null,
 });
 
+const isLoggedIn = createReducer(false, {
+  [authActions.registerSuccess]: () => true,
+  [authActions.logInSuccess]: () => true,
+  [authActions.getCurrentUserSuccess]: () => true,
+  [authActions.logOutSuccess]: () => false,
+  [authActions.registerError]: false,
+  [authActions.logInError]: false,
+  [authActions.getCurrentUserError]: false,
+});
+
 const setError = (_, { payload }) => payload;
 
 const error = createReducer(null, {
@@ -29,5 +39,6 @@ const error = createReducer(null, {
 export default combineReducers({
   user,
   token,
+  isLoggedIn,
   error,
 });
