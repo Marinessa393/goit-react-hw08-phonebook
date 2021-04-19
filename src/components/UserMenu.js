@@ -8,6 +8,9 @@ function UserMenu({ name, avatar, onLogout }) {
     <>
       <div>
         <NavLink to="/">Main</NavLink>
+        <button>
+          <NavLink to="/contacts">Contacts</NavLink>
+        </button>
         <img src={avatar} alt="" />
         <p>Hello, {name}</p>
         <button type="button" onClick={onLogout}>

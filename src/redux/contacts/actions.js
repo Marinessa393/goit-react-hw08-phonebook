@@ -17,11 +17,11 @@ export const addContactError = createAction('phonebook/addContactError');
 
 // deleteContact
 export const deleteContactRequest = createAction(
-  'phonebook/deleteContactRequest',
+  'contacts/deleteContactRequest',
 );
 export const deleteContactSuccess = createAction(
-  'phonebook/deleteContactSuccess',
+  'contacts/deleteContactSuccess',
 );
-export const deleteContactError = createAction('phonebook/deleteContactError');
+export const deleteContactError = createAction('contacts/deleteContactError');
 
-export const changeFilter = createAction('phonebook/ChangeFilter');
+export const changeFilter = createAction('contacts/ChangeFilter');

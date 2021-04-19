@@ -12,7 +12,7 @@ function AppBar({ isAuth }) {
 }
 
 const mapStateToProps = state => ({
-  isAuth: selectors.getIsAuthentificated(state),
+  isAuth: selectors.getIsAuthenticated(state),
 });
 
 export default connect(mapStateToProps)(AppBar);

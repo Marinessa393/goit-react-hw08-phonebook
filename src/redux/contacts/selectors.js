@@ -1,10 +1,10 @@
 import { createSelector } from '@reduxjs/toolkit';
 
-export const getLoading = state => state.phonebook.loading;
+export const getLoading = state => state.contacts.loading;
 
-export const getFilter = state => state.phonebook.filter;
+export const getFilter = state => state.contacts.filter;
 
-export const getAllContacts = state => state.phonebook.items;
+export const getAllContacts = state => state.contacts.items;
 
 export const getFilteredContacts = createSelector(
   [getFilter, getAllContacts],
