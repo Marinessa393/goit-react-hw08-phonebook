@@ -1,13 +1,11 @@
 import {
   Avatar,
   Button,
-  FormControl,
   IconButton,
-  Input,
   InputAdornment,
-  InputLabel,
   TextField,
 } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@material-ui/icons';
 import LockIcon from '@material-ui/icons/Lock';
 import { Component } from 'react';
 import { connect } from 'react-redux';
@@ -77,6 +75,23 @@ class RegisterView extends Component {
             fullWidth
             onChange={this.handleChange}
             color="primary"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={this.handleClickShowPassword}
+                    onMouseDown={this.handleMouseDownPassword}
+                  >
+                    {this.state.showPassword ? (
+                      <Visibility />
+                    ) : (
+                      <VisibilityOff />
+                    )}
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
 
           <Button

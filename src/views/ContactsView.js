@@ -7,7 +7,6 @@ const ContactsView = () => {
     <>
       <div className="Container">
         <section title="Phonebook" className="Phonebook__section">
-          <h1 className="Phonebook__title">Phonebook</h1>
           <ContactForm />
         </section>
         <section title="Contacts" className="Contacts">
