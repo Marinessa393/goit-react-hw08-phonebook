@@ -1,10 +1,17 @@
+import {
+  Avatar,
+  Button,
+  FormControl,
+  IconButton,
+  Input,
+  InputAdornment,
+  InputLabel,
+  TextField,
+} from '@material-ui/core';
+import LockIcon from '@material-ui/icons/Lock';
 import { Component } from 'react';
 import { connect } from 'react-redux';
 import operations from '../redux/auth/auth-operations';
-
-// const { register } = operations;
-// console.log(register);
-// console.log(typeof register);
 
 class RegisterView extends Component {
   state = {
@@ -22,39 +29,65 @@ class RegisterView extends Component {
     this.props.onSubmit(this.state);
     this.setState({ name: '', email: '', password: '' });
   };
+
   render() {
     const { name, email, password } = this.state;
     return (
       <>
-        <form onSubmit={this.handleSubmit} autoComplete="off">
-          <label>
-            <p>Name:</p>
-            <input
-              type="text"
-              name="name"
-              value={name}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            <p>E-mail:</p>
-            <input
-              type="email"
-              name="email"
-              value={email}
-              onChange={this.handleChange}
-            />
-          </label>
-          <label>
-            <p>Password:</p>
-            <input
-              type="password"
-              name="password"
-              value={password}
-              onChange={this.handleChange}
-            />
-          </label>
-          <button type="submit">Join</button>
+        <form onSubmit={this.handleSubmit} className="login_form">
+          <Avatar className="formAvatar">
+            <LockIcon color="action" />
+          </Avatar>
+
+          <TextField
+            id="name-reg"
+            name="name"
+            value={name}
+            type="name"
+            label="Name"
+            margin="normal"
+            required
+            fullWidth
+            autoComplete="name"
+            autoFocus
+            onChange={this.handleChange}
+            color="primary"
+          />
+          <TextField
+            id="email-reg"
+            name="email"
+            value={email}
+            type="email"
+            label="Email Address"
+            margin="normal"
+            required
+            fullWidth
+            autoComplete="email"
+            onChange={this.handleChange}
+            color="primary"
+          />
+          <TextField
+            id="password-reg"
+            name="password"
+            value={password}
+            type="password"
+            label="Password"
+            margin="normal"
+            required
+            fullWidth
+            onChange={this.handleChange}
+            color="primary"
+          />
+
+          <Button
+            variant="contained"
+            type="submit"
+            className="btn"
+            color="primary"
+            fullWidth
+          >
+            Join
+          </Button>
         </form>
       </>
     );

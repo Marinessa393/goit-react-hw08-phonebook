@@ -17,7 +17,6 @@ class ContactForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    // const id = uuidv4();
     const { name, number } = this.state;
     const { onSubmit, items } = this.props;
 
@@ -83,7 +82,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
 ContactForm.propTypes = {
   contacts: PropTypes.arrayOf(
     PropTypes.exact({
-      // id: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       number: PropTypes.string.isRequired,
     }),

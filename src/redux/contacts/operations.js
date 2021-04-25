@@ -11,13 +11,17 @@ import {
   deleteContactError,
 } from './actions';
 
-export const fetchContacts = () => dispatch => {
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+
+export const fetchContacts = () => async dispatch => {
   dispatch(fetchContactRequest());
 
-  axios
-    .get('contacts')
-    .then(({ data }) => dispatch(fetchContactSuccess(data)))
-    .catch(error => dispatch(fetchContactError(error)));
+  try {
+    const response = await axios.get('/contacts');
+    dispatch(fetchContactSuccess(response.data));
+  } catch (error) {
+    dispatch(fetchContactError(error.message));
+  }
 };
 
 export const addContact = ({ name, number }) => dispatch => {
