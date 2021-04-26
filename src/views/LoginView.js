@@ -41,7 +41,7 @@ class LoginView extends Component {
     const { email, password } = this.state;
     return (
       <>
-        <form onSubmit={this.handleSumbit} className="login_form" noValidate>
+        <form onSubmit={this.handleSumbit} className="login_form">
           <Avatar className="formAvatar">
             <LockIcon color="action" />
           </Avatar>

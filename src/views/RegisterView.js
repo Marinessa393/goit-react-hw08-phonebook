@@ -16,6 +16,7 @@ class RegisterView extends Component {
     name: '',
     email: '',
     password: '',
+    showPassword: false,
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -26,6 +27,14 @@ class RegisterView extends Component {
     e.preventDefault();
     this.props.onSubmit(this.state);
     this.setState({ name: '', email: '', password: '' });
+  };
+
+  handleClickShowPassword = () => {
+    this.setState(({ showPassword }) => ({ showPassword: !showPassword }));
+  };
+
+  handleMouseDownPassword = e => {
+    e.preventDefault();
   };
 
   render() {
@@ -68,7 +77,7 @@ class RegisterView extends Component {
             id="password-reg"
             name="password"
             value={password}
-            type="password"
+            type={this.state.showPassword ? 'text' : 'password'}
             label="Password"
             margin="normal"
             required
