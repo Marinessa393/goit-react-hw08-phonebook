@@ -1,8 +1,14 @@
 import { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchContacts, deleteContact } from '../redux/contacts/operations';
+import { fetchContacts, deleteContact } from '../../redux/contacts/operations';
 import PropTypes from 'prop-types';
-import { getFilteredContacts, getLoading } from '../redux/contacts/selectors';
+import {
+  getFilteredContacts,
+  getLoading,
+} from '../../redux/contacts/selectors';
+import s from './ContactList.module.css';
+import { Button } from '@material-ui/core';
+import { Delete } from '@material-ui/icons';
 
 class ContactList extends Component {
   componentDidMount() {
@@ -16,19 +22,20 @@ class ContactList extends Component {
         {isLoading && <p className="loading">Loading...</p>}
 
         {items.length > 0 && (
-          <ul className="ContactList">
+          <ul className={s.ContactList}>
             {items.map(({ id, name, number }) => (
               <li key={id}>
-                <p>
-                  {name}: {number}
-                </p>
-                <button
+                <p className={s.contact_name}>{name}</p>
+                <p>{number}</p>
+                <Button
                   type="button"
                   className="ContactList__btn"
                   onClick={() => onDelete(id)}
+                  color="primary"
+                  variant="contained"
                 >
-                  Delete
-                </button>
+                  <Delete />
+                </Button>
               </li>
             ))}
           </ul>

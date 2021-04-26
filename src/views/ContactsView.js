@@ -1,6 +1,6 @@
 import ContactForm from '../components/ContactForm/ContactForm';
-import ContactList from '../components/ContactList';
-import Filter from '../components/Filter';
+import ContactList from '../components/ContactList/ContactList';
+import Filter from '../components/ContactList/Filter/Filter';
 
 const ContactsView = () => {
   return (
@@ -10,7 +10,6 @@ const ContactsView = () => {
           <ContactForm />
         </section>
         <section title="Contacts" className="Contacts">
-          <h2 className="Contacts__title">Contacts</h2>
           <Filter />
           <ContactList />
         </section>

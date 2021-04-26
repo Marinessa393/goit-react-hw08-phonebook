@@ -1,13 +1,24 @@
+import { TextField } from '@material-ui/core';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { changeFilter } from '../redux/contacts/actions';
-import { getFilter } from '../redux/contacts/selectors';
+import { changeFilter } from '../../../redux/contacts/actions';
+import { getFilter } from '../../../redux/contacts/selectors';
+import s from './Filter.module.css';
 
 function Filter({ value, onChange }) {
   return (
-    <div className="Filter">
-      <p className="form__title ">Find Contacts By Name</p>
-      <input type="text" value={value} onChange={onChange}></input>
+    <div className={s.Filter}>
+      <TextField
+        label="find by name.."
+        variant="filled"
+        multiline
+        color="primary"
+        fullWidth
+        size="small"
+        type="text"
+        value={value}
+        onChange={onChange}
+      ></TextField>
     </div>
   );
 }
