@@ -32,3 +32,12 @@ body {
   text-decoration: none;
   margin-top: 20px;
 }
+
+.Container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  background-color: rgba(33, 33, 33, 0.589);
+}
