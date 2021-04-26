@@ -14,7 +14,7 @@ export const AuthNav = () => {
           Register
         </NavLink>
         <NavLink
-          to="./login"
+          to="/login"
           exact
           className={s.authlink_log}
           activeClassName={s.activeauthlink}
