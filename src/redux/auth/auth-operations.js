@@ -12,12 +12,6 @@ const token = {
   },
 };
 
-/*
- * POST @ /users/signup
- * body: {name, email, password}
-
- */
-
 const register = user => async dispatch => {
   dispatch(authActions.registerRequest());
 
@@ -29,11 +23,6 @@ const register = user => async dispatch => {
     dispatch(authActions.registerError(error.message));
   }
 };
-
-/*
- * POST @ /users/login
- * body: {email, password}
- */
 
 const logIn = user => async dispatch => {
   dispatch(authActions.logInRequest());
@@ -47,12 +36,6 @@ const logIn = user => async dispatch => {
   }
 };
 
-/*
- * POST @ /users/logout
- * headers:
- *    Authorisation: Bearer token
- */
-
 const logOut = () => async dispatch => {
   dispatch(authActions.logOutRequest);
   try {
@@ -63,12 +46,6 @@ const logOut = () => async dispatch => {
     dispatch(authActions.logOutError(error.message));
   }
 };
-
-/*
- *  GET @ /users/current
- *  headers:
- *    Authorisation: Bearer token
- */
 
 const getCurrentUser = () => async (dispatch, getState) => {
   const {

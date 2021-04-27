@@ -77,7 +77,6 @@ class ContactForm extends Component {
         <Button
           variant="outlined"
           color="primary"
-          // fullWidth
           type="submit"
           className={s.form_edit_btn}
         >
